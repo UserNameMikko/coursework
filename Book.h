@@ -38,43 +38,44 @@ public:
 
     /*setters*/
 
-void setName(std::string name){
-    this->name = name;
-}
-void setAuthor(std::string author){
-    this->author = author;
-}
-void setYear(int year){
-    this->year = year;
-}
-void setCount(int count){
-    this->count = count;
-}
-void setAvailable(){
-    this->count == 0 ? false : true;
-}
+    void setName(std::string name){
+        this->name = name;
+    }
+    void setAuthor(std::string author){
+        this->author = author;
+    }
+    void setYear(int year){
+        this->year = year;
+    }
+    void setCount(int count){
+        this->count = count;
+    }
+    void setAvailable(){
+        this->count == 0 ? false : true;
+    }
 
-/*getters */
+    /*getters */
 
-std::string getName(){
-    return this->name;
-}
-std::string getAuthor(){
-    return this->author;
-}
-int getYear(){
-    return this->year;
-}
-int getCount(){
-    return this->count;
-}
-bool getAvailable(){
-    return this->isAvailable;
-}
+    std::string getName(){
+        return this->name;
+    }
+    std::string getAuthor(){
+        return this->author;
+    }
+    int getYear(){
+        return this->year;
+    }
+    int getCount(){
+        return this->count;
+    }
+    bool getAvailable(){
+        return this->isAvailable;
+    }
 
-/*base output for instance of class*/
+    /*base output for instance of class*/
 
-void print() {
-    std::cout << this->name << "\t" << this->author <<"\t" << this->year <<"\t" << this->count << "\t" << this->isAvailable << std::endl;
-}
+    void print() {
+        std::cout << this->name << "\t" << this->author <<"\t" << this->year <<"\t" << this->count << "\t" << this->isAvailable << std::endl;
+    }
+
 };
