@@ -31,6 +31,7 @@ public:
             "5 - output all data" << std::endl <<
             "6 - save data to file" << std::endl <<
             "7 - load data from file" << std::endl <<
+            "8 - change data" << std::endl <<
             "0 - exit" << std::endl;
             "-> ";
 
@@ -58,6 +59,8 @@ public:
             case 7:
                 load();
                 break;
+            case 8:
+                changeData();
             default:
                 break;
             }
@@ -278,7 +281,6 @@ public:
         int sizeOfList;
         if (!booksList.empty())
             booksList.clear();
-        std::cout<<booksList.empty();
 
         fileIn.open(initFile, std::ios_base::in);
         if (!fileIn){
@@ -328,6 +330,73 @@ public:
         }
 
         fileOut.close();
+    }
+
+    void changeData(){
+        printAll();
+        int index, ch;
+
+        std::cout << "select the item that needs to be changed" << std::endl << "-> ";
+        std::cin >> index;
+
+        std::cout << "which parameter do you want to change?" << std::endl 
+        << "1 - title" << std::endl << "2 - author" << std::endl << "3 - year" <<std::endl << 
+        "4 - count of books" << std::endl <<  "5 - all parameters" << std::endl << "-> ";
+        std::cin >> ch;
+
+        switch (ch){
+        case 1:
+            changeTitle(index);
+            break;
+        case 2:
+            changeAuthor(index);
+            break;
+        case 3:
+            changeYear(index);
+            break;
+        case 4:
+            changeCount(index);
+            break;
+        case 5:
+            changeTitle(index);
+            changeAuthor(index);
+            changeYear(index);
+            changeCount(index);
+            break;
+        
+        default:
+            break;
+        }
+    }
+
+    void changeTitle(int index){
+        std::string title;
+        std::cout << "old value: "<< booksList[index].getName() << std::endl;
+        std::cout << "enter new data for the 'title' field:" << std::endl;
+        std::cin >> title; 
+        booksList[index].setName(title);
+    }
+    void changeAuthor(int index){
+        std::string author;
+        std::cout << "old value: "<< booksList[index].getAuthor() << std::endl;
+        std::cout << "enter new data for the 'author' field:" << std::endl;
+        std::cin >> author; 
+        booksList[index].setAuthor(author);
+    }
+    void changeYear(int index){
+        int year;
+        std::cout << "old value: "<< booksList[index].getYear() << std::endl;
+        std::cout << "enter new data for the 'year' field:" << std::endl;
+        std::cin >> year; 
+        booksList[index].setYear(year);
+    }
+    void changeCount(int index){
+        int count;
+        std::cout << "old value: "<< booksList[index].getCount() << std::endl;
+        std::cout << "enter new data for the 'year' field:" << std::endl;
+        std::cin >> count; 
+        booksList[index].setCount(count);
+        booksList[index].setAvailable();
     }
 
 };
