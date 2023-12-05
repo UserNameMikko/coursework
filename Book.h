@@ -51,7 +51,7 @@ public:
         this->count = count;
     }
     void setAvailable(){
-        this->count == 0 ? false : true;
+        this->isAvailable = this->count != 0;
     }
 
     /*getters */

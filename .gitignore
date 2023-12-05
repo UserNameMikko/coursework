@@ -1,2 +1,4 @@
 /main
-/.vscode/
+.vscode/
+build/
+/db.txt
